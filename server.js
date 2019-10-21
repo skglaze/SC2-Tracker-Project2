@@ -1,22 +1,7 @@
-/* 
- * This is the template for a server.js file.  Follow the steps below and read
- * the comments for creating your own (or you can just copy this file).
- */
-
-/* Step 1
- *
- * Import needed packages
- *
- */
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 
-/* Step 2
- * 
- * import routers from controllers/
- *
- */
 const { templateRouter } = require('./controllers/template.js')
 
 
