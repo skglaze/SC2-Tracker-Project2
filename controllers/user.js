@@ -4,6 +4,10 @@ const userApi = require('../models/user.js')
 
 const userRouter = express.Router()
 
+userRouter.get('/users/new', (req, res) => {
+  res.render('userViews/newUserForm')
+})
+
 //get all
 userRouter.get('/users', (req, res) => {
   userApi.getAllUsers()
@@ -21,10 +25,6 @@ userRouter.get('/users/:userId', (req, res) => {
 })
 
 //create one
-userRouter.get('/users/new', (req, res) => {
-  res.render('userViews/newUserForm')
-})
-
 userRouter.post('/users', (req, res) => {
   userApi.addNewUser(req.body)
     .then((newUser) => {
