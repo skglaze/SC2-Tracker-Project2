@@ -28,7 +28,7 @@ const { templateRouter } = require('./controllers/template.js')
 /* Step 3.a
  * ...to parse the body of the HTTP requests from a URL encoded string 
  */
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 /* Step 3.b 
  *
@@ -47,7 +47,7 @@ app.use(methodOverride('_method'))
  * use the `./public` directory to host static resources such as css and
  * image files 
  */
-app.use(express.static(__dirname+"/public"))
+app.use(express.static(__dirname + "/public"))
 
 /* Step 3.b
  *
@@ -69,7 +69,7 @@ app.use('/helloworld', templateRouter)
  *
  * NOTE: keep these lines at the bottom of the file 
  */
-const PORT = process.env.PORT || 3000 
+const PORT = process.env.PORT || 3000
 
 /* Step 6
  *
