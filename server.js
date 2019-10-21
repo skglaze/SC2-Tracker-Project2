@@ -20,18 +20,8 @@ app.use('/', userRouter)
 app.use('/', opponentRouter)
 app.use('/', mapRouter)
 
-/* Step 5
- *
- * Set the port the server is to run on
- *
- * NOTE: keep these lines at the bottom of the file 
- */
 const PORT = process.env.PORT || 3000
 
-/* Step 6
- *
- * Start the server
- */
 app.listen(PORT, () => {
     console.log(`App is listening on PORT ${PORT}`)
 })
