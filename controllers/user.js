@@ -12,7 +12,7 @@ userRouter.get('/users/new', (req, res) => {
 userRouter.get('/users', (req, res) => {
   userApi.getAllUsers()
     .then((users) => {
-      res.render('userViews/users')
+      res.render('userViews/users', { users })
     })
 })
 
@@ -36,7 +36,7 @@ userRouter.post('/users', (req, res) => {
 userRouter.delete('/users/:userId', (req, res) => {
   userApi.deleteUser(req.params.userId)
     .then((deletedUser) => {
-      res.render('userViews/users')
+      res.redirect('/users')
     })
 })
 
