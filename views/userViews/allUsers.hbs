@@ -1,0 +1,13 @@
+<h1>All Users</h1>
+
+{{#each issues}}
+<a href="/users/{{_id}}">
+    <p>{{name}}</p>
+</a>
+{{/each}}
+
+<a href="/users/new">
+    <button>
+        Create New User
+    </button>
+</a>
