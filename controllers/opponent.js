@@ -32,7 +32,7 @@ opponentRouter.get('/opponents/new/:userId', (req, res) => {
 opponentRouter.post('/opponents', (req, res) => {
     opponentApi.addNewOpponent(req.body)
         .then((newOpponent) => {
-            res.redirect(`/users`)
+            res.redirect(`/users/${newOpponent.userId}`)
         })
 })
 
