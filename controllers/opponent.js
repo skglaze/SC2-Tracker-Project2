@@ -1,6 +1,7 @@
 const express = require('express')
 
 const opponentApi = require('../models/opponent.js')
+const userApi = require('../models/user')
 
 const opponentRouter = express.Router()
 
