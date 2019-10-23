@@ -5,15 +5,14 @@ global.sampleModel = [];
 const OpponentSchema = new mongoose.Schema({
     name: String,
     mmr: Number,
-    strategy: String,
     race: String,
-    win: String,
+    userId: mongoose.ObjectId,
 })
 
 const OpponentCollection = mongoose.model('Opponent', OpponentSchema)
 
-const getAllOpponents = () => {
-    return OpponentCollection.find({})
+const getAllOpponentsByUserId = () => {
+    return OpponentCollection.find({ userId: userId })
 }
 
 const getOneOpponent = (id) => {
@@ -33,7 +32,7 @@ const deleteOpponent = (id) => {
 }
 
 module.exports = {
-    getAllOpponents,
+    getAllOpponentsByUserId,
     getOneOpponent,
     addNewOpponent,
     updateOpponent,

@@ -3,7 +3,9 @@ const mongoose = require('./connection.js')
 global.sampleModel = [];
 
 const UserSchema = new mongoose.Schema({
-  name: String
+  name: String,
+  race: String,
+  mmr: Number,
 })
 
 const UserCollection = mongoose.model('User', UserSchema)

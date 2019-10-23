@@ -6,15 +6,15 @@ const opponentRouter = express.Router()
 
 //get all
 opponentRouter.get('/opponents', (req, res) => {
-    opponentApi.getAllopponents()
+    opponentApi.getAllOpponents()
         .then((opponents) => {
-            res.render('opponentViews/opponents')
+            res.render('opponentViews/opponents', { opponents })
         })
 })
 
 //get one
 opponentRouter.get('/opponents/:opponentId', (req, res) => {
-    opponentApi.getOneopponent(req.params.opponentId)
+    opponentApi.getOneOpponent(req.params.opponentId)
         .then((opponent) => {
             res.render('opponentViews/opponent', { opponent })
         })
@@ -22,20 +22,20 @@ opponentRouter.get('/opponents/:opponentId', (req, res) => {
 
 //create one
 opponentRouter.get('/opponents/new', (req, res) => {
-    res.render('opponentViews/newopponentForm')
+    res.render('opponentViews/newOpponentForm')
 })
 
 opponentRouter.post('/opponents', (req, res) => {
-    opponentApi.addNewopponent(req.body)
-        .then((newopponent) => {
-            res.redirect(`/opponents/${newopponent._id}`)
+    opponentApi.addNewOpponent(req.body)
+        .then((newOpponent) => {
+            res.redirect(`/opponents/${newOpponent._id}`)
         })
 })
 
 //delete one
 opponentRouter.delete('/opponents/:opponentId', (req, res) => {
-    opponentApi.deleteopponent(req.params.opponentId)
-        .then((deletedopponent) => {
+    opponentApi.deleteOpponent(req.params.opponentId)
+        .then((deletedOpponent) => {
             res.render('opponentViews/opponents')
         })
 })
