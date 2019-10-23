@@ -1,9 +1,10 @@
 <h2>Add Opponent</h2>
 
-<form action="/users" method="POST">
+<form action="/opponents" method="POST">
     <input type="text" name="name" placeholder="name" />
     <input type="text" name="race" placeholder="race" />
     <input type="number" name="mmr" placeholder="mmr" />
+    <input type="text" name="userId" value="{{userId}}" />
 
     <br>
     <input type="submit" value="Create" />

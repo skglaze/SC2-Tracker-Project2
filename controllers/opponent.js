@@ -9,7 +9,7 @@ const opponentRouter = express.Router()
 opponentRouter.get('/opponents', (req, res) => {
     opponentApi.getAllOpponents()
         .then((opponents) => {
-            res.render('opponentViews/opponents', { opponents })
+            res.render('opponentViews/AllOpponents', { opponents })
         })
 })
 
@@ -25,14 +25,14 @@ opponentRouter.get('/opponents/:opponentId', (req, res) => {
 })
 
 //create one
-opponentRouter.get('/opponents/new', (req, res) => {
-    res.render('opponentViews/newOpponentForm')
+opponentRouter.get('/opponents/new/:userId', (req, res) => {
+    res.render('opponentViews/newOpponentForm', { userId: req.params.userId })
 })
 
 opponentRouter.post('/opponents', (req, res) => {
     opponentApi.addNewOpponent(req.body)
         .then((newOpponent) => {
-            res.redirect(`/opponents/${newOpponent._id}`)
+            res.redirect(`/users`)
         })
 })
 

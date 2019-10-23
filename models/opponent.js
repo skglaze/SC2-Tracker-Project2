@@ -11,6 +11,10 @@ const OpponentSchema = new mongoose.Schema({
 
 const OpponentCollection = mongoose.model('Opponent', OpponentSchema)
 
+const getAllOpponents = () => {
+    return OpponentCollection.find({})
+}
+
 const getAllOpponentsByUserId = (userId) => {
     return OpponentCollection.find({ userId: userId })
 }
@@ -32,6 +36,7 @@ const deleteOpponent = (id) => {
 }
 
 module.exports = {
+    getAllOpponents,
     getAllOpponentsByUserId,
     getOneOpponent,
     addNewOpponent,
