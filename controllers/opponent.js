@@ -1,7 +1,7 @@
 const express = require('express')
 
 const opponentApi = require('../models/opponent.js')
-const userApi = require('../models/user')
+const gameApi = require('../models/game')
 
 const opponentRouter = express.Router()
 
@@ -17,7 +17,10 @@ opponentRouter.get('/opponents', (req, res) => {
 opponentRouter.get('/opponents/:opponentId', (req, res) => {
     opponentApi.getOneOpponent(req.params.opponentId)
         .then((opponent) => {
-            res.render('opponentViews/opponent', { opponent })
+            gameApi.getAllGamesByOpponentId(req.params.id)
+                .then((opponentGames) => {
+                    res.render('opponentViews/opponent', { opponent, opponentGames })
+                })
         })
 })
 
