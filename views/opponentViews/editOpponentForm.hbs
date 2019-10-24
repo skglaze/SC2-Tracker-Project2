@@ -1,0 +1,10 @@
+<h2>Edit Opponent</h2>
+
+<form action="/opponents/{{opponent._id}}?_method=PUT" method="POST">
+    <input type="text" name="name" placeholder="name" value="{{opponent.name}}" />
+    <input type="text" name="race" placeholder="race" value="{{opponent.race}}" />
+    <input type="number" name="mmr" placeholder="mmr" value="{{opponent.mmr}}" />
+
+    <br>
+    <input type="submit" value="Save" />
+</form>

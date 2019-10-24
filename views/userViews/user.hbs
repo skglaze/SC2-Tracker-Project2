@@ -3,19 +3,17 @@
 <p>Race: {{user.race}}</p>
 <p>MMR: {{user.mmr}}</p>
 
+<h2>Opponents</h2>
+
 {{#each userOpponents}}
-<a href="/opponents/{{user._id}}">
+<a href="/opponents/{{_id}}">
     <p>{{name}}</p>
 </a>
 {{/each}}
 
-<form action="/users/{{user._id}}?_method=DELETE" method="POST">
-    <input type="submit" value="Delete User" />
-</form>
-
 <a href="/opponents/new/{{user._id}}">
     <button>
-        Add Opponent
+        New Opponent
     </button>
 </a>
 
@@ -32,3 +30,7 @@
         All Users
     </p>
 </a>
+
+<form action="/users/{{user._id}}?_method=DELETE" method="POST">
+    <input type="submit" value="Delete User" />
+</form>

@@ -17,7 +17,7 @@ opponentRouter.get('/opponents', (req, res) => {
 opponentRouter.get('/opponents/:opponentId', (req, res) => {
     opponentApi.getOneOpponent(req.params.opponentId)
         .then((opponent) => {
-            gameApi.getAllGamesByOpponentId(req.params.id)
+            gameApi.getAllGamesByOpponentId(req.params.opponentId)
                 .then((opponentGames) => {
                     res.render('opponentViews/opponent', { opponent, opponentGames })
                 })
@@ -32,7 +32,7 @@ opponentRouter.get('/opponents/new/:userId', (req, res) => {
 opponentRouter.post('/opponents', (req, res) => {
     opponentApi.addNewOpponent(req.body)
         .then((newOpponent) => {
-            res.redirect(`/users/${newOpponent.userId}`)
+            res.redirect(`/opponents/${newOpponent._id}`)
         })
 })
 
@@ -46,14 +46,14 @@ opponentRouter.delete('/opponents/:opponentId', (req, res) => {
 
 //update
 opponentRouter.get('/opponents/edit/:opponentId', (req, res) => {
-    opponentApi.deleteopponent(req.params.opponentId)
-        .then((deletedopponent) => {
+    opponentApi.getOneOpponent(req.params.opponentId)
+        .then((opponent) => {
             res.render('opponentViews/editOpponentForm', { opponent })
         })
 })
 
 opponentRouter.put('/opponents/:opponentId', (req, res) => {
-    opponentApi.updateOpponent(req.params.issueId, req.body)
+    opponentApi.updateOpponent(req.params.opponentId, req.body)
         .then((updatedOpponent) => {
             res.redirect(`/opponents/${req.params.opponentId}`)
         })

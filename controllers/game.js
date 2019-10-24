@@ -4,13 +4,13 @@ const gameApi = require('../models/game.js')
 
 const gameRouter = express.Router()
 
-gameRouter.get('/game/new', (req, res) => {
-    res.render('gameViews/newGameForm')
+gameRouter.get('/game/new/:opponentId', (req, res) => {
+    res.render('gameViews/newGameForm', { opponentId: req.params.opponentId })
 })
 
 //get all
 gameRouter.get('/games', (req, res) => {
-    gameApi.getAllGame()
+    gameApi.getAllGames()
         .then((games) => {
             res.render('gameViews/allGames', { games })
         })
@@ -18,7 +18,7 @@ gameRouter.get('/games', (req, res) => {
 
 //get one
 gameRouter.get('/games/:gameId', (req, res) => {
-    gameApi.getOneUser(req.params.gameId)
+    gameApi.getOneGame(req.params.gameId)
         .then((game) => {
             res.render('gameViews/game', { game })
         })
@@ -28,7 +28,7 @@ gameRouter.get('/games/:gameId', (req, res) => {
 gameRouter.post('/games', (req, res) => {
     gameApi.addNewGame(req.body)
         .then((newGame) => {
-            res.redirect(`/opponent/${newGame.opponentId._id}`)
+            res.redirect(`/opponents/${newGame.opponentId._id}`)
         })
 })
 

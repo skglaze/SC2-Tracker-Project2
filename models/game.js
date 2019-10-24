@@ -12,7 +12,11 @@ const GameSchema = new mongoose.Schema({
 
 const GameCollection = mongoose.model('Game', GameSchema)
 
-const getAllGamesByOpponentId = () => {
+const getAllGames = () => {
+    return GameCollection.find({})
+}
+
+const getAllGamesByOpponentId = (opponentId) => {
     return GameCollection.find({ opponentId: opponentId })
 }
 
@@ -33,6 +37,7 @@ const deleteGame = (id) => {
 }
 
 module.exports = {
+    getAllGames,
     getAllGamesByOpponentId,
     getOneGame,
     addNewGame,

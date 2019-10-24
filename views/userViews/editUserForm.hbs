@@ -1,0 +1,10 @@
+<h2>Edit User</h2>
+
+<form action="/users/{{user._id}}?_method=PUT" method="POST">
+    <input type="text" name="name" placeholder="name" value="{{user.name}}" />
+    <input type="text" name="race" placeholder="race" value="{{user.race}}" />
+    <input type="number" name="mmr" placeholder="mmr" value="{{user.mmr}}" />
+
+    <br>
+    <input type="submit" value="Save" />
+</form>
