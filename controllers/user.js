@@ -44,6 +44,21 @@ userRouter.delete('/users/:userId', (req, res) => {
     })
 })
 
+//update
+userRouter.get('/users/edit/:userId', (req, res) => {
+  userApi.getOneUser(req.params.userId)
+    .then((user) => {
+      res.render('userViews/editUserForm', { user })
+    })
+})
+
+userRouter.put('/users/:userId', (req, res) => {
+  userApi.updateUser(req.params.userId, req.body)
+    .then((updatedUser) => {
+      res.redirect(`/users/${req.params.userId}`)
+    })
+})
+
 module.exports = {
   userRouter
 }
