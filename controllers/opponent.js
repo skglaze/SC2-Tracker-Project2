@@ -40,7 +40,7 @@ opponentRouter.post('/opponents', (req, res) => {
 opponentRouter.delete('/opponents/:opponentId', (req, res) => {
     opponentApi.deleteOpponent(req.params.opponentId)
         .then((deletedOpponent) => {
-            res.render('opponentViews/opponents')
+            res.redirect(`/users/${deletedOpponent.userId}`)
         })
 })
 

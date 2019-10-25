@@ -36,7 +36,7 @@ gameRouter.post('/games', (req, res) => {
 gameRouter.delete('/games/:gameId', (req, res) => {
     gameApi.deleteGame(req.params.gameId)
         .then((deletedGame) => {
-            res.redirect('/games')
+            res.redirect('/users')
         })
 })
 
