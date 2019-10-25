@@ -19,27 +19,29 @@
     {{/each}}
 </div>
 
-<form action="/opponents/{{opponent._id}}?_method=DELETE" method="POST">
-    <input type="submit" value="Delete Opponent" />
-</form>
-
-<br>
 <br>
 
-<a href="/game/new/{{opponent._id}}">
+<a href="/game/new/{{opponent._id}}" class="buttons">
     Record Game
 </a>
 
 <br>
 <br>
 
-<a href="/opponents/edit/{{opponent._id}}">
+<a href="/opponents/edit/{{opponent._id}}" class="buttons">
     Edit Opponent
 </a>
 
 <br>
 <br>
 
-<a href="/users/{{opponent.userId}}">
+<a href="/users/{{opponent.userId}}" class="buttons">
     Your Page
 </a>
+
+<br>
+<br>
+
+<form action="/opponents/{{opponent._id}}?_method=DELETE" method="POST">
+    <input type="submit" value="Delete Opponent" />
+</form>
