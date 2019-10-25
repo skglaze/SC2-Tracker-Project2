@@ -70,6 +70,14 @@ input {
     padding: 20px;
     height: 190px;
 }
+
+.win{
+    color: green;
+}
+
+.loss {
+    color: red;
+}
 /* form {
     display: flex;
     justify-content: center;
