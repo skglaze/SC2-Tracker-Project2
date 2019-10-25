@@ -15,25 +15,28 @@
     {{/each}}
 </div>
 
-<a href="/opponents/new/{{user._id}}">
-    <button>
-        New Opponent
-    </button>
+<br>
+
+<a href="/opponents/new/{{user._id}}" class="buttons">
+    New Opponent
 </a>
 
 <br>
+<br>
 
-<a href="/users/edit/{{user._id}}">
-    <button>
-        Edit User
-    </button>
+<a href="/users/edit/{{user._id}}" class="buttons">
+    Edit User
 </a>
 
-<a href="/users">
-    <p>
-        All Users
-    </p>
+<br>
+<br>
+
+<a href="/users" class="buttons">
+    All Users
 </a>
+
+<br>
+<br>
 
 <form action="/users/{{user._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete User" />

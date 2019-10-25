@@ -1,17 +1,23 @@
-<h1>{{opponent.name}}</h1>
+<div class="user">
+    <h1>{{opponent.name}}</h1>
 
-<p>Race: {{opponent.race}}</p>
-<p>MMR: {{opponent.mmr}}</p>
+    <p class="user-attribute">Race: {{opponent.race}}</p>
+    <p class="user-attribute">MMR: {{opponent.mmr}}</p>
+</div>
 <br>
-{{#each opponentGames}}
-<a href="/games/{{_id}}">
-    <p>{{map}}</p>
-</a>
-<p>{{opponentStrat}}</p>
-<p>{{userStrat}}</p>
-<p>{{win}}</p>
-<br>
-{{/each}}
+<div class="games">
+    {{#each opponentGames}}
+    <div class="game">
+        <a href="/games/{{_id}}">
+            <p>Map: {{map}}</p>
+        </a>
+        <p>Win/Loss: {{win}}</p>
+        <p>Opponent Build: {{opponentStrat}}</p>
+        <p>Your Build: {{userStrat}}</p>
+        <br>
+    </div>
+    {{/each}}
+</div>
 
 <form action="/opponents/{{opponent._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete Opponent" />
