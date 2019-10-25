@@ -57,6 +57,10 @@ input {
     border-radius: 6px;
 }
 
+.buttons:hover {
+    box-shadow: 2px 2px 5px black;;
+}
+
 .games {
     display: flex;
     flex-wrap: wrap;
