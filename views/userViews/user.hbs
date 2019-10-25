@@ -7,11 +7,13 @@
 
 <h2>Opponents</h2>
 
-{{#each userOpponents}}
-<a href="/opponents/{{_id}}">
-    <p>{{name}}</p>
-</a>
-{{/each}}
+<div class="opponents">
+    {{#each userOpponents}}
+    <a href="/opponents/{{_id}}">
+        <p class="opponent">{{name}}</p>
+    </a>
+    {{/each}}
+</div>
 
 <a href="/opponents/new/{{user._id}}">
     <button>
