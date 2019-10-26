@@ -58,7 +58,8 @@ input {
 }
 
 .buttons:hover {
-    box-shadow: 2px 2px 5px black;;
+    box-shadow: 2px 2px 5px black;
+    transition: 0ms;
 }
 
 .games {
@@ -76,12 +77,28 @@ input {
 }
 
 .win{
-    color: green;
+    color: rgb(3, 206, 3);
 }
 
 .loss {
     color: red;
 }
+
+input[type=submit], select {
+    text-decoration: none;
+    padding: 10px;
+    background: black;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    padding-bottom: 30px;
+}
+
+input[type=submit]:hover, select {
+    box-shadow: 2px 2px 5px black;
+    cursor: pointer;
+}
+
 /* form {
     display: flex;
     justify-content: center;
